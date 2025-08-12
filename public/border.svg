@@ -1,0 +1,19 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1311 9" width="1311" height="9">
+	<title>3244425</title>
+	<defs>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0,-5.01,1319.997,0,657.01,8)">
+			<stop offset="0" stop-color="#7d612a"/>
+			<stop offset=".465" stop-color="#ae8c4b"/>
+			<stop offset="1" stop-color="#9d8443"/>
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: url(#g1) } 
+	</style>
+	<g id="Group 1">
+		<g id="Design">
+			<path id="Rectangle " fill-rule="evenodd" class="s0" d="m-3 3h1320v5h-1320z"/>
+		</g>
+	</g>
+</svg>
