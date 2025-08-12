@@ -3,7 +3,14 @@
 import { motion } from "framer-motion";
 import AnimatedText from "@/components/AnimatedText";
 
-const TimelineItem = ({ timeline, text, image, direction = "left" }) => {
+type Props = {
+    timeline: string;
+    text: string;
+    image: string;
+    direction?: "left" | "right";
+}
+
+const TimelineItem = ({ timeline, text, image, direction = "left" }:Props) => {
     return (
         <motion.div
             initial={{ opacity: 0, x: direction === "left" ? -100 : 100, y: -50 }}
@@ -12,7 +19,8 @@ const TimelineItem = ({ timeline, text, image, direction = "left" }) => {
             viewport={{ once: true }}
             className="flex-1 flex justify-center align-middle items-center h-[20vh]"
         >
-            direction === "left" && (
+            {direction === "left" && (
+                <>
                 <div className="flex flex-1 py-2">
                     <div className="flex flex-1 items-center">
                         <button
@@ -48,9 +56,11 @@ const TimelineItem = ({ timeline, text, image, direction = "left" }) => {
                     </div>
                 </div>
                 <div className="flex-1"></div>
-            )
+                </>
+            )}
 
-            direction === "right" && (
+            {direction === "right" && (
+                <>
                 <div className="flex-1"></div>
                 <div className="flex flex-1 py-2">
                     <div className="flex flex-1 items-center">
@@ -86,7 +96,8 @@ const TimelineItem = ({ timeline, text, image, direction = "left" }) => {
                         />
                     </div>
                 </div>
-            )
+                </>
+            )}
         </motion.div>
     );
 };

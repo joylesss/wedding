@@ -8,13 +8,16 @@ export default function QR() {
         <section className="sm:h-screen py-8 px-4 max-w-1xl mx-auto flex flex-col md:flex-col"
                  data-scroll-section
         >
-            <h2 className="text-5xl font-bold mx-auto align-center w-[60%]">
-                <AnimatedText text="Mừng cưới từ xa" />
-            </h2>
-            <hr
-                data-scroll
-                className="w-[60%] is-hidden pb-12"/>
-            <div className="col-1 sm:inline-flex text-right mx-auto pt-15">
+            <div className="pb-5 md:pb-15 ">
+                <h2 className="text-[2.2rem] sm:text-[2.6rem] md:text-[2.7rem] lg:text-5xl font-bold mx-auto align-center w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] font-bold lg:pb-2 leading-none">
+                    <AnimatedText text="Mừng cưới từ xa" />
+                </h2>
+                <hr
+                    className="w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] is-hidden pb-2 mb-4"
+                    data-scroll
+                />
+            </div>
+            <div className="col-1 sm:inline-flex text-right mx-auto pt-15 h-[55%]">
                 <div
                     data-scroll
                     className="content-end sm:pr-5 pb-5 md:pb-0">
@@ -39,7 +42,7 @@ export default function QR() {
                         }}
                         viewport={{ once: true, amount: 0.5 }}
                         className="text-lg text-gray-600 mt-2 text-center">
-                            Phan Vũ Nguyên Nam<br/>
+                            AAA<br/>
                             MB Bank - 123456789
                     </motion.p>
                     <motion.img
@@ -78,7 +81,7 @@ export default function QR() {
                         }}
                         viewport={{ once: true, amount: 0.5 }}
                         className="text-lg text-gray-600 mt-2 text-center">
-                            Nguyễn Thị Đài Loan<br/>
+                            BBB<br/>
                             Vietcombank - 123456789
                     </motion.p>
                     <motion.img

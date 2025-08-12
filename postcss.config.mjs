@@ -1,15 +1,8 @@
 const config = {
   plugins: [
-      "@tailwindcss/postcss",
+    "@tailwindcss/postcss",
+    "autoprefixer",
   ],
-  theme: {
-    extend: {
-      screens: {
-        'xxs': '360px',
-        'xs': '480px',
-      }
-    }
-  }
 };
 
 export default config;

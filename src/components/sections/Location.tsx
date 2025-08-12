@@ -5,15 +5,19 @@ import AnimatedText from "@/components/AnimatedText";
 
 export default function Location() {
     return (
-        <section className="py-8 px-4 max-w-1xl mx-auto flex flex-col md:flex-col"
+        <section className="py-0 py-8 px-4 max-w-1xl mx-auto flex flex-col md:flex-col"
                  data-scroll-section
         >
-            <h2 className="text-5xl mx-auto align-center w-[60%] font-bold pb-2">
-                <AnimatedText text="Thông tin lễ cưới"/>
-            </h2>
-            <hr className="w-[60%] is-hidden pb-4"
-                data-scroll
-            />
+            <div className="pb-5 md:pb-15 ">
+                <h2 className="text-[2.2rem] sm:text-[2.6rem] md:text-[2.7rem] lg:text-5xl mx-auto align-center w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] font-bold lg:pb-2 leading-none">
+                  <AnimatedText text="Thông tin lễ cưới"/>
+                </h2>
+                <hr
+                    className="w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] is-hidden pb-2 mb-4"
+                    data-scroll
+                />
+            </div>
+
             <div className="md:col-1 inline md:inline-flex md:text-right mx-auto pb-10">
                 <div className="md:mr-[5rem] md:content-end">
                     <motion.p

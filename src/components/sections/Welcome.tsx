@@ -2,8 +2,45 @@
 
 import {motion} from "framer-motion";
 import AnimatedText from "@/components/AnimatedText"
+import {useEffect, useState} from "react";
 
 export default function Welcome() {
+
+  const [daysLeft, setDaysLeft] = useState(0);
+  const [hoursLeft, setHoursLeft] = useState(0);
+  const [minutesLeft, setMinutesLeft] = useState(0);
+  const [secondsLeft, setSecondsLeft] = useState(0);
+
+  useEffect(() => {
+    const targetDate = new Date("2025-08-20 00:00:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        // Nếu đã đến ngày target thì clear
+        setDaysLeft(0);
+        setHoursLeft(0);
+        setMinutesLeft(0);
+        setSecondsLeft(0);
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setDaysLeft(days);
+      setHoursLeft(hours);
+      setMinutesLeft(minutes);
+      setSecondsLeft(seconds);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
     return (
         <div className="h-screen pt-[0rem] sm:pt-20 md:pt-25"
              data-scroll-section
@@ -76,7 +113,7 @@ export default function Welcome() {
             </motion.nav>
 
             <section
-                className="text-center py-8 sm:py-20 md:px-10 w-[320px] sm:w-[500px] md:w-[768px] mx-auto"
+                className="text-center py-8 sm:py-20 md:px-10  sm:w-[500px] md:w-[768px] mx-auto"
                 data-scroll-section
             >
                 <motion.img
@@ -88,7 +125,7 @@ export default function Welcome() {
                         delay: 0.8
                     }}
                     viewport={{ once: true, amount: 0.5 }}
-                    src="/save-the-date.svg" alt="Save the date" className="w-80 sm:w-90"
+                    src="/save-the-date.svg" alt="Save the date" className="w-80 sm:w-90 ml-[2.5rem] sm:ml-0"
                 />
                 <div className="inline-flex relative sm:top-[-8rem] md:top-[-9rem]">
                     <p className="text-[6rem] sm:text-[7rem] md:text-[10rem] font-bold sm:mt-4 ml-[0rem] sm:ml-[11rem] md:ml-[4rem] relative text"
@@ -166,7 +203,7 @@ export default function Welcome() {
                 {/*Countdown*/}
                 <div className="inline sm:block mt-[-6rem] text-2xl font-title">
                     <span
-                        className="text-base tracking-wider md:w-[60%] m-auto text-[1.8rem] inline-block countdown"
+                        className="text-base tracking-wider w-[90%] md:w-[60%] m-auto text-[1.8rem] inline-block countdown"
                         data-scroll>
                         <AnimatedText text="Days left until our day"/>
                     </span>
@@ -174,10 +211,10 @@ export default function Welcome() {
                         className="w-[55%] m-auto is-hidden pb-5"
                         data-scroll
                     />
-                    <div className="flex justify-center space-x-12">
+                    <div className="flex justify-center space-x-3 sm:space-x-12">
                         <div className="text-center">
                             <div className="text-6xl font-bold">
-                                <AnimatedText text="29"/>
+                                <AnimatedText text={String(daysLeft)}/>
                             </div>
                             <div className="text-3xl mt-[-8] italic">
                                 <AnimatedText text="Days" direction="down"/>
@@ -185,7 +222,7 @@ export default function Welcome() {
                         </div>
                         <div className="text-center">
                             <div className="text-6xl font-bold">
-                                <AnimatedText text="13"/>
+                                <AnimatedText text={String(hoursLeft)}/>
                             </div>
                             <div className="text-3xl mt-[-8] italic">
                                 <AnimatedText text="Hours" direction="down"/>
@@ -193,10 +230,18 @@ export default function Welcome() {
                         </div>
                         <div className="text-center">
                             <div className="text-6xl font-bold">
-                                <AnimatedText text="20"/>
+                                <AnimatedText text={String(minutesLeft)}/>
                             </div>
                             <div className="text-3xl mt-[-8] italic">
                                 <AnimatedText text="Mins" direction="down"/>
+                            </div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-6xl font-bold">
+                                <AnimatedText text={String(secondsLeft)}/>
+                            </div>
+                            <div className="text-3xl mt-[-8] italic">
+                                <AnimatedText text="Seconds"/>
                             </div>
                         </div>
                     </div>

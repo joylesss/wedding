@@ -6,8 +6,6 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 //
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
 import AnimatedText from "@/components/AnimatedText";
 
 const images = [
@@ -24,26 +22,21 @@ const images = [
 ];
 
 export default function Gallery() {
-    const [index, setIndex] = useState(0)
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setIndex((prev) => (prev + 1) % images.length)
-        }, 3500)
-
-        return () => clearInterval(timer)
-    }, [])
 
     return (
-        <section className="sm:h-screen py-8 px-4 mx-auto flex flex-col md:flex-col"
+        <section className="h-screen py-8 px-4 mx-auto flex flex-col md:flex-col"
                  data-scroll-section
         >
-            <h2 className="text-5xl font-bold mx-auto align-center w-[60%]">
-                <AnimatedText text="Album" />
-            </h2>
-            <hr
-                data-scroll
-                className="w-[60%] is-hidden pb-4"/>
+            <div className="pb-5 md:pb-15 ">
+                <h2 className="text-[2.2rem] sm:text-[2.6rem] md:text-[2.7rem] lg:text-5xl font-bold mx-auto align-center w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] lg:pb-2 leading-none">
+                    <AnimatedText text="Album" />
+                </h2>
+                <hr
+                    className="w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] is-hidden pb-2 mb-4"
+                    data-scroll
+                />
+            </div>
             <Swiper
                 slidesPerView={'auto'}
                 spaceBetween={25}
@@ -56,13 +49,11 @@ export default function Gallery() {
                 loop={true}
                 className="mySwiper"
             >
-
                 {images.map((img, index) => (
                     <SwiperSlide>
-                        <img src={img} alt={index} ></img>
+                        <img src={img} alt={index} />
                     </SwiperSlide>
                 ))}
-
 
             </Swiper>
 

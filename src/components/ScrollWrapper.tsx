@@ -34,13 +34,11 @@ export default function ScrollWrapper({ children }: { children: React.ReactNode 
 
             scrollRef.current = scrollInstance;
 
-
             // ✅ Update scroll khi resize
             const handleResize = () => {
                 scrollRef.current?.update();
             };
             window.addEventListener("resize", handleResize);
-
 
             // ✅ Cleanup
             return () => {
@@ -52,7 +50,6 @@ export default function ScrollWrapper({ children }: { children: React.ReactNode 
     }, []);
 
     return (
-        // <div data-scroll-container ref={containerRef} className="min-h-screen bg-[url('/wedding-bg.png')] bg-cover bg-center text-slate-950 ">
         <div data-scroll-container ref={containerRef} className="min-h-screen bg-[#efeeec] bg-cover bg-center text-slate-950">
             {children}
         </div>
