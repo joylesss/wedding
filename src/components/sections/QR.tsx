@@ -5,11 +5,11 @@ import AnimatedText from "@/components/AnimatedText";
 
 export default function QR() {
     return (
-        <section className="sm:h-screen py-8 px-4 max-w-1xl mx-auto flex flex-col md:flex-col"
+        <section className="sm:h-screen px-4 max-w-1xl mx-auto flex flex-col md:flex-col"
                  data-scroll-section
         >
-            <div className="pb-5 md:pb-15 ">
-                <h2 className="text-[2.2rem] sm:text-[2.6rem] md:text-[2.7rem] lg:text-5xl font-bold mx-auto align-center w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] font-bold lg:pb-2 leading-none">
+            <div className="pt-2 pb-5 md:pb-15">
+                <h2 className="text-[2.2rem] sm:text-[2.6rem] md:text-[2.7rem] lg:text-5xl font-bold mx-auto align-center w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] font-bold pb-1 leading-none">
                     <AnimatedText text="Mừng cưới từ xa" />
                 </h2>
                 <hr
@@ -17,7 +17,7 @@ export default function QR() {
                     data-scroll
                 />
             </div>
-            <div className="col-1 sm:inline-flex text-right mx-auto pt-15 h-[55%]">
+            <div className="col-1 sm:inline-flex text-right mx-auto pt-5 sm:pt-15 h-[55%]">
                 <div
                     data-scroll
                     className="content-end sm:pr-5 pb-5 md:pb-0">

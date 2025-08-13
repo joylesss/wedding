@@ -4,95 +4,89 @@ import { motion } from "framer-motion";
 import AnimatedText from "@/components/AnimatedText";
 
 type Props = {
+    key: number;
     timeline: string;
     text: string;
     image: string;
-    direction?: "left" | "right";
+    image_timeline: string;
+    direction: string;
 }
 
-const TimelineItem = ({ timeline, text, image, direction = "left" }:Props) => {
+const TimelineItem = (
+    { timeline, text, image, image_timeline, direction }
+    :Props) => {
     return (
         <motion.div
-            initial={{ opacity: 0, x: direction === "left" ? -100 : 100, y: -50 }}
-            whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="flex-1 flex justify-center align-middle items-center h-[20vh]"
+            initial={{ opacity: 0, x: direction === "left" ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 1.5 }}
+            viewport={{ once: true, amount: 0.5 }}
+            className={`flex-1 md:flex justify-center align-middle items-center lg:mt-[0rem] h-[38vh] lg:h-[13rem]`}
         >
             {direction === "left" && (
                 <>
                 <div className="flex flex-1 py-2">
-                    <div className="flex flex-1 items-center">
-                        <button
-                            className="btn-timeline mr-5"
-                            data-scroll
-                        >Tháng {timeline}</button>
-                        <p
-                            className="text-lg"
-                            data-scroll
-                        >
-                            <AnimatedText text={text}/>
-                        </p>
-                    </div>
-                    <div
-                        className="flex-1"
-                        data-scroll
-                    >
-                        <motion.img
+                    <div className="w-[52%] relatve img-wrapper ml-2 sm:ml-0">
+                        <img
                             src={image}
-                            alt="couple"
-                            className="rounded-full w-45 h-45 object-cover mx-auto border-4 border-white shadow"
-                            data-scroll
-                            initial={{opacity: 0, x: -150}}
-                            animate={{opacity: 1, x: 0}}
-                            transition={{
-                                duration: 0.3,
-                                ease: "easeOut",
-                                delay: 0.8
-                            }}
-                            viewport={{ once: false, amount: 0.8 }}
-
+                            alt="coupl2e"
+                            className="shadow w-[100%] md:w-[80%] lg:w-[100%]"
                         />
                     </div>
+                    <div className="flex w-[48%] items-center p-2">
+                        <div className="text-lg leading-[1.1]">
+                            <p className="md:text-base m-2">
+                                <AnimatedText text={timeline} direction="down" delay={1.5}/>
+                            </p>
+                            <p>
+                                <AnimatedText text={text} direction="up" delay={1.5}/>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div className="flex-1"></div>
+                <div className="lg:flex-1 relative">
+                    <motion.img
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        whileInView={{ opacity: 1, scaleX: 1 }}
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 2 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        src={image_timeline} alt=""
+                        // className="w-28 absolute left-[-4rem] hidden lg:block"
+                        className={`w-28 absolute hidden lg:block} ${direction === 'left' ? 'left-[-4rem]' : 'right-[-4rem]'} `}
+                    />
+                </div>
                 </>
             )}
 
             {direction === "right" && (
                 <>
-                <div className="flex-1"></div>
+                <div className="lg:flex-1 relative">
+                    <motion.img
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        whileInView={{ opacity: 1, scaleX: 1 }}
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 2 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        src={image_timeline} alt=""
+                        className="w-28 absolute right-[-4rem] hidden lg:block"
+                    />
+                </div>
                 <div className="flex flex-1 py-2">
-                    <div className="flex flex-1 items-center">
-                        <button
-                            className="btn-timeline mr-5"
-                            data-scroll
-                        >Tháng {timeline}</button>
-                        <p
-                            className="text-lg"
-                            data-scroll
-                        >
-                            <AnimatedText text={text}/>
-                        </p>
+                    <div className="flex w-[48%] items-center p-2">
+                        <div className="text-lg leading-[1.1]">
+                            <p className="md:text-base m-2">
+                                <AnimatedText text={timeline} direction="down"/>
+                            </p>
+                            <p>
+                                <AnimatedText text={text}/>
+                            </p>
+                        </div>
                     </div>
                     <div
-                        className="flex-1"
-                        data-scroll
+                        className="w-[52%] relatve img-wrapper mr-2 sm:mr-0"
                     >
-                        <motion.img
-                            src={image}
-                            alt="couple"
-                            className="rounded-full w-45 h-45 object-cover mx-auto border-4 border-white shadow"
-                            data-scroll
-                            initial={{opacity: 0, x: -150}}
-                            animate={{opacity: 1, x: 0}}
-                            transition={{
-                                duration: 0.3,
-                                ease: "easeOut",
-                                delay: 0.8
-                            }}
-                            viewport={{ once: false, amount: 0.8 }}
-
+                        <img
+                            src={image} alt="couple"
+                            className="shadow w-[100%] md:w-[80%] lg:w-[100%]"
                         />
                     </div>
                 </div>

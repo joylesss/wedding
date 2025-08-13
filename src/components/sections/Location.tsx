@@ -5,11 +5,11 @@ import AnimatedText from "@/components/AnimatedText";
 
 export default function Location() {
     return (
-        <section className="py-0 py-8 px-4 max-w-1xl mx-auto flex flex-col md:flex-col"
+        <section className="py-0 pt-15 pb-8 px-4 max-w-1xl mx-auto flex flex-col"
                  data-scroll-section
         >
-            <div className="pb-5 md:pb-15 ">
-                <h2 className="text-[2.2rem] sm:text-[2.6rem] md:text-[2.7rem] lg:text-5xl mx-auto align-center w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] font-bold lg:pb-2 leading-none">
+            <div className="pt-2 pb-5 md:pb-15 ">
+                <h2 className="text-[2.2rem] sm:text-[2.6rem] md:text-[2.7rem] lg:text-5xl mx-auto align-center w-[95%] sm:w-[82%] md:w-[70%] lg:w-[58%] font-bold pb-1 leading-none">
                   <AnimatedText text="Thông tin lễ cưới"/>
                 </h2>
                 <hr
